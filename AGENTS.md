@@ -26,7 +26,9 @@ Published packages: `@mp-lb/mdkit`, `@mp-lb/zog`, `@mp-lb/paper`. Everything els
 - `apps/*` — landing pages, docs sites, testbenches (all private).
 - `docs/projects/<project>/` — one folder of product docs per project.
 - `etc/` — shared tsconfig + vitest base configs.
-- `infra/` — Terraform for the mdkit docs deploy (mdkit-specific for now).
+- `infra/<project>/` — per-project infra (currently just `infra/mdkit/`, the
+  Terraform for mdkit's docs deploy). The repo root carries **no** project-specific
+  runtime deps — each package declares its own.
 
 ## Commands
 

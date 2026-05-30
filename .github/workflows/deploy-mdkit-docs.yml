@@ -1,12 +1,12 @@
-name: Deploy Docs
+name: Deploy mdkit docs
 
 on:
   push:
     branches: [main]
     paths:
       - "packages/mdkit/**"
-      - "infra/**"
-      - ".github/workflows/deploy-docs.yml"
+      - "infra/mdkit/**"
+      - ".github/workflows/deploy-mdkit-docs.yml"
       - "package.json"
       - "pnpm-lock.yaml"
       - "pnpm-workspace.yaml"
@@ -38,14 +38,14 @@ jobs:
           terraform_version: 1.7.0
 
       - name: Terraform Init
-        working-directory: infra
+        working-directory: infra/mdkit
         run: |
           terraform init \
             -backend-config="bucket=${{ secrets.GCP_PROJECT_ID }}-terraform-state" \
             -backend-config="prefix=terraform/state/${{ env.PROJECT_NAME }}"
 
       - name: Terraform Apply
-        working-directory: infra
+        working-directory: infra/mdkit
         run: |
           terraform apply -auto-approve \
             -var="project_name=${{ env.PROJECT_NAME }}" \
@@ -70,7 +70,7 @@ jobs:
 
       - name: Get Vercel IDs
         id: vercel
-        working-directory: infra
+        working-directory: infra/mdkit
         env:
           VERCEL_API_TOKEN: ${{ secrets.VERCEL_API_TOKEN }}
           VERCEL_ORG_ID_SECRET: ${{ secrets.VERCEL_ORG_ID }}
@@ -91,5 +91,5 @@ jobs:
           VERCEL_ORG_ID: ${{ steps.vercel.outputs.org_id }}
 
       - name: Show outputs
-        working-directory: infra
+        working-directory: infra/mdkit
         run: terraform output
