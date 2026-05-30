@@ -1,0 +1,30 @@
+{
+  "name": "@mp-lb/mdkit-testbench-backend",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --conditions=source src/index.ts",
+    "start": "tsx --conditions=source src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.1",
+    "@fastify/websocket": "^11.2.0",
+    "@hocuspocus/extension-database": "^2.15.0",
+    "@hocuspocus/server": "^2.15.0",
+    "@mp-lb/mdkit": "workspace:*",
+    "@trpc/server": "^11.7.1",
+    "fastify": "^5.1.0",
+    "tsx": "^4.20.6",
+    "yjs": "^13.6.24",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@trpc/client": "^11.7.1",
+    "@types/node": "^20.19.25",
+    "typescript": "^5",
+    "vitest": "4.1.5"
+  }
+}

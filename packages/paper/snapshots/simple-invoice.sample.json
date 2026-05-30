@@ -1,0 +1,27 @@
+{
+  "invoiceId": "INV-001",
+  "details": [
+    {
+      "label": "Bill To",
+      "value": "Acme Inc."
+    },
+    {
+      "label": "Tax ID",
+      "value": "TX-123"
+    },
+    {
+      "label": "Due Date",
+      "value": "2026-06-15"
+    }
+  ],
+  "rows": [
+    {
+      "description": "Discovery work",
+      "amount": 1200
+    },
+    {
+      "description": "Implementation",
+      "amount": 3400.5
+    }
+  ]
+}

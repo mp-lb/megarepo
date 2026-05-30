@@ -1,0 +1,51 @@
+{
+  "name": "@mp-lb/zog",
+  "version": "0.6.0",
+  "description": "A tiny Zod-first persistence layer for MongoDB.",
+  "private": false,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mp-lb/zog.git"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "docs",
+    "package.json",
+    "README.md",
+    "SPEC.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "dev": "tsc --project tsconfig.build.json --watch",
+    "prepublishOnly": "pnpm test && pnpm typecheck && pnpm build",
+    "test:integration": "ZOG_INTEGRATION_MONGODB_URI=${ZOG_INTEGRATION_MONGODB_URI:-mongodb://127.0.0.1:27017} vitest run test/indexes.integration.test.ts",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "mongodb",
+    "zod",
+    "repository"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "mongodb": "^6.0.0",
+    "zod": "^3.22.0 || ^4.0.0"
+  },
+  "devDependencies": {
+    "mongodb": "^6.20.0",
+    "zod": "^4.1.0"
+  }
+}

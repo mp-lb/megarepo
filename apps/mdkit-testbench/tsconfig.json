@@ -1,0 +1,30 @@
+{
+  "extends": "../../etc/tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@mp-lb/mdkit": [
+        "../../packages/mdkit/src/index.ts"
+      ],
+      "@mp-lb/mdkit/trpc": [
+        "../../packages/mdkit/src/trpc.ts"
+      ],
+      "@mp-lb/mdkit/trpc/client": [
+        "../../packages/mdkit/src/trpc/client.ts"
+      ],
+      "@mp-lb/mdkit/yjs": [
+        "../../packages/mdkit/src/yjs/index.ts"
+      ]
+    },
+    "types": [
+      "vite/client"
+    ]
+  },
+  "include": [
+    "src",
+    "vite.config.ts"
+  ]
+}

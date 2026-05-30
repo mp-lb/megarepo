@@ -1,0 +1,37 @@
+{
+  "name": "@mp-lb/shad",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm registry:build && next dev",
+    "build": "pnpm registry:build && next build",
+    "preview": "next start",
+    "typecheck": "next typegen && tsc --noEmit",
+    "registry:build": "shadcn build registry.json -o public/r"
+  },
+  "dependencies": {
+    "@mp-lb/mdkit": "workspace:*",
+    "@tailwindcss/postcss": "^4.1.17",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "fumadocs-core": "16.8.12",
+    "fumadocs-mdx": "^14.2.9",
+    "fumadocs-ui": "npm:@fumadocs/base-ui@16.8.12",
+    "lucide-react": "^0.554.0",
+    "next": "^16.2.1",
+    "radix-ui": "^1.4.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.17",
+    "tw-animate-css": "^1.3.6"
+  },
+  "devDependencies": {
+    "@types/mdx": "^2.0.13",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "shadcn": "^4.6.0",
+    "typescript": "^6.0.3"
+  }
+}

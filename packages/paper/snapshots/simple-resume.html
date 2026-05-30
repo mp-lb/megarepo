@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jane Doe Resume</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 24mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        color: #191919;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      .document-header {
+        border-bottom: 1px solid #d9d9d9;
+        margin-bottom: 24px;
+        padding-bottom: 18px;
+      }
+
+      .eyebrow {
+        color: #666;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin: 0 0 6px;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-size: 28px;
+        line-height: 1.1;
+        margin: 0;
+      }
+
+      h2 {
+        border-bottom: 1px solid #e6e6e6;
+        font-size: 14px;
+        margin: 0 0 14px;
+        padding-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .summary {
+        color: #333;
+        font-size: 13px;
+        margin: 12px 0 0;
+        max-width: 640px;
+      }
+
+      .details {
+        display: grid;
+        gap: 8px 24px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin: 18px 0 0;
+      }
+
+      .details div {
+        min-width: 0;
+      }
+
+      .details dt {
+        color: #666;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .details dd {
+        margin: 2px 0 0;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid #e6e6e6;
+        padding: 10px 0;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      tfoot th {
+        border-bottom: 0;
+        font-size: 14px;
+        padding-top: 14px;
+      }
+
+      .amount {
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .experience {
+        margin-bottom: 18px;
+      }
+
+      .company {
+        color: #555;
+        margin: 2px 0 8px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    
+        <header class="document-header">
+          <p class="eyebrow">Resume</p>
+          <h1>Jane Doe</h1>
+          <p class="summary">Operator and builder</p>
+        </header>
+        <section>
+          <h2>Experience</h2>
+          
+                <article class="experience">
+                  <h3>Product Lead</h3>
+                  <p class="company">Acme</p>
+                  <ul><li>Shipped billing</li><li>Reduced support load</li></ul>
+                </article>
+              
+        </section>
+      
+  </body>
+</html>

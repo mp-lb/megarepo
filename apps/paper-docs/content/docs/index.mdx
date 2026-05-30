@@ -1,0 +1,48 @@
+---
+title: Quick Start
+description: Generate plain documentation from structured JSON with the Paper CLI.
+---
+
+Install Paper:
+
+```sh
+pnpm add -D @mp-lb/paper
+```
+
+Run the CLI with a JSON input file:
+
+```sh
+paper document.json
+```
+
+For now the CLI scaffold reports the input file it would process:
+
+```text
+paper: generate boring docs from document.json
+```
+
+## Input Shape
+
+Paper is intended for boring, predictable docs generated from JSON. A minimal
+input can describe the document title and sections:
+
+```json
+{
+  "title": "API Notes",
+  "sections": [
+    {
+      "title": "Overview",
+      "body": "Stable reference text generated from structured data."
+    }
+  ]
+}
+```
+
+## Package Layout
+
+The workspace contains:
+
+- `packages/paper`: publishable CLI package exposing the `paper` command.
+- `apps/docs`: Fumadocs documentation site.
+
+The generated docs site uses the Fumadocs Vite/React Router template pattern.

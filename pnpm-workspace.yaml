@@ -1,0 +1,17 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+allowBuilds:
+  esbuild: true
+  msw: true
+  playwright: true
+  "@tailwindcss/oxide": true
+  sharp: true
+
+# A single React copy across the monorepo: the merged apps pinned both 19.2.0 and
+# 19.2.6, which split React into two physical copies and broke @testing-library
+# (null hooks dispatcher). Unify on one version.
+overrides:
+  react: 19.2.6
+  react-dom: 19.2.6

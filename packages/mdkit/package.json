@@ -1,0 +1,126 @@
+{
+  "name": "@mp-lb/mdkit",
+  "version": "0.3.2",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "docs",
+    "src/styles.css",
+    "!dist/**/*.test.d.ts",
+    "!dist/**/*.test.js",
+    "!dist/test",
+    "!docs/.vitepress/cache",
+    "!docs/.vitepress/dist"
+  ],
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./core": {
+      "source": "./src/core/index.ts",
+      "import": "./dist/core/index.js",
+      "types": "./dist/core/index.d.ts"
+    },
+    "./fastify": {
+      "source": "./src/fastify.ts",
+      "import": "./dist/fastify.js",
+      "types": "./dist/fastify.d.ts"
+    },
+    "./server": {
+      "source": "./src/server.ts",
+      "import": "./dist/server.js",
+      "types": "./dist/server.d.ts"
+    },
+    "./trpc": {
+      "source": "./src/trpc.ts",
+      "import": "./dist/trpc.js",
+      "types": "./dist/trpc.d.ts"
+    },
+    "./yjs": {
+      "source": "./src/yjs/index.ts",
+      "import": "./dist/yjs/index.js",
+      "types": "./dist/yjs/index.d.ts"
+    },
+    "./styles.css": "./src/styles.css",
+    "./trpc/client": {
+      "source": "./src/trpc/client.ts",
+      "import": "./dist/trpc/client.js",
+      "types": "./dist/trpc/client.d.ts"
+    },
+    "./trpc/server": {
+      "source": "./src/trpc/server.ts",
+      "import": "./dist/trpc/server.js",
+      "types": "./dist/trpc/server.d.ts"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "dev": "tsc --watch --project tsconfig.json",
+    "build": "tsc --project tsconfig.json && node scripts/add-js-extensions.mjs",
+    "docs:build": "vitepress build docs",
+    "docs:dev": "node scripts/load-docs-env.mjs dev",
+    "docs:preview": "node scripts/load-docs-env.mjs preview",
+    "release:check": "pnpm typecheck && pnpm test && pnpm build && pnpm docs:build",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit --project tsconfig.json"
+  },
+  "peerDependencies": {
+    "@trpc/client": "^11.7.1",
+    "@trpc/server": "^11.7.1",
+    "fastify": "^5.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@trpc/client": {
+      "optional": true
+    },
+    "@trpc/server": {
+      "optional": true
+    },
+    "fastify": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@hocuspocus/provider": "^2.15.0",
+    "@tiptap/core": "^3.14.0",
+    "@tiptap/extension-collaboration": "^3.14.0",
+    "@tiptap/extension-collaboration-caret": "^3.14.0",
+    "@tiptap/extension-link": "^3.14.0",
+    "@tiptap/extension-placeholder": "^3.14.0",
+    "@tiptap/markdown": "^3.20.1",
+    "@tiptap/pm": "^3.14.0",
+    "@tiptap/react": "^3.14.0",
+    "@tiptap/starter-kit": "^3.14.0",
+    "@tiptap/y-tiptap": "^3.0.2",
+    "lucide-react": "^0.554.0",
+    "react-markdown": "10.1.0",
+    "remark-gfm": "4.0.1",
+    "yaml": "2.9.0",
+    "yjs": "^13.6.24",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@trpc/client": "^11.7.1",
+    "@trpc/server": "^11.7.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "dotenv": "^17.4.2",
+    "dotenv-expand": "^13.0.0",
+    "fastify": "^5.1.0",
+    "jsdom": "29.1.1",
+    "vite": "7.2.4",
+    "vitepress": "^1.6.4",
+    "vitest": "4.1.5"
+  }
+}

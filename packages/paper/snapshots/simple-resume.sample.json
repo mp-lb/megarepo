@@ -1,0 +1,14 @@
+{
+  "name": "Jane Doe",
+  "summary": "Operator and builder",
+  "experience": [
+    {
+      "company": "Acme",
+      "role": "Product Lead",
+      "highlights": [
+        "Shipped billing",
+        "Reduced support load"
+      ]
+    }
+  ]
+}

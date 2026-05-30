@@ -1,0 +1,83 @@
+# Quick Start
+
+Install Zog with Zod and the MongoDB driver:
+
+```sh
+pnpm add @mp-lb/zog zod mongodb
+```
+
+## 1. Define A Model
+
+```ts
+import { MongoClient } from "mongodb";
+import { z } from "zod";
+import { createModel, defineDb } from "@mp-lb/zog";
+
+const userSchema = z.object({
+  id: z.string().trim().min(1),
+  email: z.string().email(),
+  name: z.string().trim().min(1),
+  createdAt: z.string().datetime(),
+  updatedAt: z.string().datetime(),
+});
+
+type User = z.infer<typeof userSchema>;
+
+const userModel = createModel("users", userSchema, {
+  primaryKey: "id",
+});
+```
+
+`createModel` accepts any schema-like object with a synchronous `parse()`
+method. Repository reads return the parsed output type.
+
+## 2. Create The Database Adapter
+
+```ts
+const mongoClient = new MongoClient(process.env.MONGODB_URI!);
+await mongoClient.connect();
+
+const db = defineDb([userModel] as const, {
+  mongoClient,
+  databaseName: "app",
+});
+```
+
+The `as const` is important. It lets TypeScript infer `db.users` from the
+literal model name.
+
+## 3. Read And Write
+
+```ts
+const now = new Date().toISOString();
+
+const user: User = {
+  id: "user_1",
+  email: "test@example.com",
+  name: "Test User",
+  createdAt: now,
+  updatedAt: now,
+};
+
+await db.users.insertOne(user);
+
+const byId = await db.users.findById("user_1");
+const byEmail = await db.users.findOne({ email: "test@example.com" });
+const page = await db.users.find({}).sort({ email: 1 }).limit(20).toArray();
+
+await db.users.updateOne(
+  { id: "user_1" },
+  { $set: { name: "Updated User", updatedAt: new Date().toISOString() } },
+);
+
+await db.users.deleteOne({ id: "user_1" });
+```
+
+Writes store one canonical Mongo primary key, `_id`, mapped from the domain
+primary key. On reads, Zog maps `_id` back to the configured domain primary key
+before parsing through the schema.
+
+```ts
+// Escape hatch: raw MongoDB collection, no Zog parsing or primary-key mapping.
+await db.users.raw.aggregate([]).toArray();
+```

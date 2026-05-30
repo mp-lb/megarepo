@@ -1,0 +1,15 @@
+node_modules/
+dist/
+build/
+.turbo/
+.zap/
+.vitepress/cache/
+.react-router/
+.next/
+.source/
+*.tsbuildinfo
+public/r/
+.env
+.env.local
+.DS_Store
+AGENTS.local.md

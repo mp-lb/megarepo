@@ -1,0 +1,9 @@
+{
+  "extends": "../../etc/tsconfig.lib.json",
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
+}

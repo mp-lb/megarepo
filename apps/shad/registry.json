@@ -1,0 +1,58 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "mp-lb-shad",
+  "homepage": "https://shad.mp-lb.dev",
+  "items": [
+    {
+      "name": "mdkit-editor",
+      "type": "registry:component",
+      "title": "MDKit Editor",
+      "description": "shadcn-rendered markdown editor shell for @mp-lb/mdkit with local and connected variants.",
+      "dependencies": ["@mp-lb/mdkit", "lucide-react"],
+      "registryDependencies": ["badge", "button", "dialog", "tabs", "textarea"],
+      "categories": ["markdown", "editor", "docs"],
+      "files": [
+        {
+          "path": "registry/mdkit-editor/mdkit-editor.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "json-viewer",
+      "type": "registry:component",
+      "title": "JSON Viewer",
+      "description": "Collapsible syntax-colored JSON tree with path copying, search, and expand/collapse controls.",
+      "dependencies": ["lucide-react"],
+      "categories": ["dev-tools", "dashboard", "json"],
+      "files": [
+        {
+          "path": "registry/json-viewer/json-viewer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/json-viewer/lib/themes.ts",
+          "type": "registry:lib",
+          "target": "@components/json-viewer/lib/themes.ts"
+        }
+      ]
+    },
+    {
+      "name": "structured-log-viewer",
+      "type": "registry:component",
+      "title": "Structured Log Viewer",
+      "description": "Expandable structured event log viewer with configurable dot-path headline fields and raw JSON detail rows.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "https://shad.mp-lb.dev/r/json-viewer.json"
+      ],
+      "categories": ["dev-tools", "dashboard", "observability"],
+      "files": [
+        {
+          "path": "registry/structured-log-viewer/structured-log-viewer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
