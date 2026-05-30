@@ -4,6 +4,6 @@
   description: 'Monorepo for the @mp-lb shared libraries — mdkit, zog, paper — plus the shad component registry',
   projectSlug: 'megarepo',
   packagePrefix: '@mp-lb',
-  libs: ['mdkit', 'zog', 'paper'],
+  libs: ['mdkit', 'zog', 'paper', 'mdcompile'],
   apps: ['shad'],
 }

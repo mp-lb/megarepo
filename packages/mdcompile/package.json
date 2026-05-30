@@ -28,8 +28,7 @@
     "cli"
   ],
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "access": "public"
   },
   "scripts": {
     "build": "tsc --project tsconfig.json && chmod +x dist/index.js",
